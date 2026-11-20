@@ -1,5 +1,6 @@
 package com.joaoszczypior.projetomvc.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Autor {
@@ -7,10 +8,20 @@ public class Autor {
     private String nacionalidade;
     private List<Livro> obrasPublicadas;
 
+    public Autor() {
+        this.obrasPublicadas = new ArrayList<>();
+    }
+
+    public Autor(String nome, String nacionalidade) {
+        this.nome = nome;
+        this.nacionalidade = nacionalidade;
+        this.obrasPublicadas = new ArrayList<>();
+    }
+
     public Autor(String nome, String nacionalidade, List<Livro> obrasPublicadas) {
         this.nome = nome;
         this.nacionalidade = nacionalidade;
-        this.obrasPublicadas = obrasPublicadas;
+        this.obrasPublicadas = obrasPublicadas != null ? obrasPublicadas : new ArrayList<>();
     }
 
     public String getNome() {
@@ -30,9 +41,13 @@ public class Autor {
     }
 
     public List<Livro> addBibliografia(Livro livro){
+        if (this.obrasPublicadas == null) {
+            this.obrasPublicadas = new ArrayList<>();
+        }
         this.obrasPublicadas.add(livro);
         return this.obrasPublicadas;
     }
+
     public List<Livro> getObrasPublicadas() {
         return obrasPublicadas;
     }

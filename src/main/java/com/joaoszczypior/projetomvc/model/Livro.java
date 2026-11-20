@@ -5,7 +5,8 @@ public class Livro {
     private String autor;
     private String isbn;
 
-    public Livro(){}
+    public Livro() {
+    }
 
     public Livro(String titutlo, String autor, String isbn) {
         this.titutlo = titutlo;
@@ -19,6 +20,14 @@ public class Livro {
 
     public void setTitutlo(String titutlo) {
         this.titutlo = titutlo;
+    }
+
+    public String getTitulo() {
+        return titutlo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titutlo = titulo;
     }
 
     public String getAutor() {

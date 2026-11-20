@@ -3,6 +3,9 @@ package com.joaoszczypior.projetomvc.model;
 public class Categoria {
     private String genero;
 
+    public Categoria() {
+    }
+
     public Categoria(String genero) {
         this.genero = genero;
     }

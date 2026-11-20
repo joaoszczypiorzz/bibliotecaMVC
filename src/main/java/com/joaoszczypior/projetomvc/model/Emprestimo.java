@@ -1,19 +1,30 @@
 package com.joaoszczypior.projetomvc.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 
 public class Emprestimo {
     private String nomeTitular;
     private String nomeLivro;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dataEmprestimo;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dataDevolucao;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dataDevolvido;
+
+    public Emprestimo() {
+    }
 
     public Emprestimo(String nomeTitular, String nomeLivro, LocalDateTime dataEmprestimo, LocalDateTime dataDevolvido) {
         this.nomeTitular = nomeTitular;
         this.nomeLivro = nomeLivro;
         this.dataEmprestimo = dataEmprestimo;
-        this.dataDevolucao = dataEmprestimo.plusDays(5);
+        this.dataDevolucao = dataEmprestimo != null ? dataEmprestimo.plusDays(5) : null;
         this.dataDevolvido = dataDevolvido;
     }
 

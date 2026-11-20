@@ -1,5 +1,6 @@
 package com.joaoszczypior.projetomvc.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
@@ -8,11 +9,22 @@ public class Usuario {
     private String senha;
     private List<Emprestimo> listaEmprestimos;
 
+    public Usuario() {
+        this.listaEmprestimos = new ArrayList<>();
+    }
+
+    public Usuario(String nome, String login, String senha) {
+        this.nome = nome;
+        this.login = login;
+        this.senha = senha;
+        this.listaEmprestimos = new ArrayList<>();
+    }
+
     public Usuario(String nome, String login, String senha, List<Emprestimo> listaEmprestimos) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
-        this.listaEmprestimos = listaEmprestimos;
+        this.listaEmprestimos = listaEmprestimos != null ? listaEmprestimos : new ArrayList<>();
     }
 
     public String getNome() {
